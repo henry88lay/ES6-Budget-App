@@ -5,11 +5,21 @@ const budgetController = (function() {
   }
   return {
     publicTest: function(b) {
-      console.log(add(b))
+      return add(b);
     }
   }
 })();
 
 const UIController = (function() {
-  
+
 })();
+
+const controller = (function(budgetCtrl, UICtrl) {
+  const z = budgetCtrl.publicTest(5);
+
+  return {
+    anotherPublic: function() {
+      console.log(z);
+    }
+  }
+})(budgetController, UIController);
